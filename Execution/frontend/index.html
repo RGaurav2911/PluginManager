@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PluginManager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Local Codex Utility</p>
+          <h1>PluginManager</h1>
+        </div>
+        <div class="actions">
+          <button id="refreshProjects" class="secondary">Refresh inference</button>
+          <button id="restartCodex" class="danger hidden">Restart Codex</button>
+        </div>
+      </header>
+
+      <section class="status-grid">
+        <article class="panel">
+          <span class="label">Enabled plugins</span>
+          <strong id="enabledCount">0</strong>
+          <p id="enabledList">Loading...</p>
+        </article>
+        <article class="panel">
+          <span class="label">Projects mapped</span>
+          <strong id="projectCount">0</strong>
+          <p>Trusted Codex projects plus observed session roots.</p>
+        </article>
+        <article class="panel">
+          <span class="label">Backups</span>
+          <strong id="backupCount">0</strong>
+          <p>Every config change is backed up first.</p>
+        </article>
+        <article class="panel restart-state" id="restartState">
+          <span class="label">Restart state</span>
+          <strong>Clean</strong>
+          <p>No pending plugin reload.</p>
+        </article>
+      </section>
+
+      <nav class="tabs" aria-label="Dashboard sections">
+        <button class="tab active" data-tab="plugins">Plugins</button>
+        <button class="tab" data-tab="projects">Projects</button>
+        <button class="tab" data-tab="profiles">Profiles</button>
+        <button class="tab" data-tab="backups">Backups</button>
+        <button class="tab" data-tab="audit">Audit</button>
+      </nav>
+
+      <section id="plugins" class="tab-panel active">
+        <div class="section-head">
+          <div>
+            <h2>Plugins</h2>
+            <p>Toggle global Codex plugin state. Changes require restart.</p>
+          </div>
+          <input id="pluginSearch" type="search" placeholder="Search plugins" />
+        </div>
+        <div id="pluginGrid" class="plugin-grid"></div>
+      </section>
+
+      <section id="projects" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <h2>Project Mapping</h2>
+            <p>Inferred from Codex sessions, tool usage, and project instruction files.</p>
+          </div>
+          <input id="projectSearch" type="search" placeholder="Search projects" />
+        </div>
+        <div id="projectList" class="project-list"></div>
+      </section>
+
+      <section id="profiles" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <h2>Profiles</h2>
+            <p>Apply known plugin groups quickly.</p>
+          </div>
+        </div>
+        <div id="profileGrid" class="profile-grid"></div>
+      </section>
+
+      <section id="backups" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <h2>Backups</h2>
+            <p>Restore a previous Codex plugin config when needed.</p>
+          </div>
+          <button id="restoreLatest" class="secondary">Restore latest</button>
+        </div>
+        <div id="backupList" class="backup-list"></div>
+      </section>
+
+      <section id="audit" class="tab-panel">
+        <div class="section-head">
+          <div>
+            <h2>Audit</h2>
+            <p>Recent dashboard actions.</p>
+          </div>
+        </div>
+        <div id="auditList" class="audit-list"></div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

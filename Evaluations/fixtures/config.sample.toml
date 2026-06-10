@@ -1,0 +1,19 @@
+model = "gpt-5.5"
+
+[plugins."gmail@openai-curated"]
+enabled = false
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = false
+
+[plugins."computer-use@openai-bundled"]
+enabled = false
+
+[projects."/Users/example/LeadFinder"]
+trust_level = "trusted"
+
+[projects."/Users/example/App"]
+trust_level = "trusted"
